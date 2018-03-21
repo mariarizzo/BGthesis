@@ -1,0 +1,139 @@
+%    This file is part of BGSU.cls The BGSU (Thesis and Dissertation LaTeX class)
+%
+%    BGSU.cls is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation, either version 3 of the License, or
+%    (at your option) any later version.
+%
+%    BGSU.cls is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with BGSU.cls  If not, see <http://www.gnu.org/licenses/>.
+%
+%    Note that this only applies to the example and template files and BGSU.cls
+%    itself. Any actual document content (such as your thesis or dissertation text)
+%    belongs solely to you and you can do with it what you please.
+
+\documentclass{BGSU}
+
+% For thesis, open BGSU.cls and change line 57 to \def\@doctype{Thesis}
+
+% packages amsmath and amsthm are loaded in BGSU.cls file
+
+\usepackage{amsmath}   % load the AMS math package
+\usepackage{amsthm}    % allows AMS definitions for theorems, proofs, etc.
+\usepackage{amssymb}   % allows the use of AMS symbols like blackboard bold
+\usepackage{graphicx}  % for including graphics files and images
+\usepackage{caption}
+\usepackage{epstopdf}
+\usepackage{times}     % Times New Roman (nimbus version)
+\usepackage{listings}  % allows program codes embeded with original forms
+\usepackage{bookmark}  % make it possible to add PDF bookmarks at will
+\usepackage{pdflscape} % make it possible to use landscape environment
+\usepackage[nottoc,notlof,notlot]{tocbibind} % keep list of figures, tables, out of the table of contents, also keep the table of contents out of the table of contents
+\usepackage[longnamesfirst]{natbib} %You need to insert comment (%) if you don't want to use natbib for bibliography
+
+% Number theorems, lemmas, etc. together with equation numbers
+% This makes things easier to find in the dissertation, a great help to readers
+
+\newtheorem{theorem}[equation]{{\bf Theorem}}
+\newtheorem{lemma}[equation]{\bf Lemma}
+\newtheorem{remark}[equation]{\bf Remark}
+\newtheorem{definition}[equation]{\bf Definition}
+\newtheorem{convention}[equation]{\bf Convention}
+\newtheorem{proposition}[equation]{\bf Proposition}
+\newtheorem{notation}[equation]{\bf Notation}
+\newtheorem{corollary}[equation]{\bf Corollary}
+\newtheorem{example}[equation]{{\bf Example}}
+
+% Alternatively, number these using the theorem counter
+%\newtheorem{theorem}{Theorem}[chapter]         % Allow numbered theorems
+%\newtheorem{lemma}[theorem]{\bf Lemma.}
+%\newtheorem{remark}[theorem]{\bf Remark.}
+%\newtheorem{definition}[theorem]{\bf Definition.}
+%\newtheorem{convention}[theorem]{\bf Convention.}
+%\newtheorem{proposition}[theorem]{\bf Proposition.}
+%\newtheorem{notation}[theorem]{\bf Notation.}
+%\newtheorem{corollary}[theorem]{\bf Corollary.}
+%\newtheorem{example}[theorem]{{\bf Example.}}
+
+% Change the text below -----------------------------------------------
+
+\title{An example dissertation}
+\author{Nate Iverson}
+\degree{Doctor of Philosophy}
+\date{August 2007}
+\advisor{Corneliu Hoffman}
+\gfr{Darth Vader} % graduate faculty representative
+\committee{Kit Chan \\ \\ Warren McGovern}
+\keywords{Algebraic topology; Bayesian analysis; more specific to your research}
+\subject{Algebra; statistics; broad terms like this}
+
+\begin{document}
+
+\frontmatter   % makes page #'s lower case roman
+
+\maketitle     % produce the title page using the information above
+
+\copyrightpage % copyrighting your dissertation is optional
+
+\begin{abstract}
+\input{frontmatter/abstract.tex}
+\end{abstract}
+
+% optional section ``Some students choose to personalize their manuscripts
+% with an appropriate quotation or illustration''
+% formatting and placement is up to you.
+\begin{dedication}
+\input{frontmatter/dedication.tex}
+\end{dedication}
+
+% optional but encouraged section ``as a means to recognize and express
+% appreciation to the people who were influential in preparing and completing
+% the manuscript''
+\begin{acknowledgments}
+\input{frontmatter/acknowledgments.tex}
+\end{acknowledgments}
+
+\pdfbookmark[section]{\contentsname}{toc}  % put toc in PDF bookmarks
+\tableofcontents
+\pagebreak
+\listoffigures
+\pagebreak
+\listoftables
+
+% preface section is optional
+\begin{preface}
+\input{frontmatter/preface.tex}
+\end{preface}
+
+\mainmatter % starts over page counter and gives regular page numbers
+
+\input{chapters/chapter1.tex}
+\input{chapters/chapter2.tex}
+\input{chapters/chapter3.tex}
+\input{chapters/chapter4.tex}
+\input{chapters/chapter5.tex}
+
+\backmatter
+
+%bibliography section: there are two options here. 1. Uncomment the following codes and use \bibitem{} to add more articles.
+%\begin{thebibliography}{99}
+%\bibitem{forina1991class} Forina, M., Armanino, C., Leardi, R., and Drava, G. (1991). A class-modelling technique based on potential functions. \textit{Journal of Chemometrics,} {\textbf{5(5)},} 435-453.
+%\end{thebibliography}
+
+%2. Using natbib package (you may use other bibliography types). Refer to http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
+\bibliographystyle{chicago}    %% this one looks best
+%\bibliographystyle{apalike}   %% looks okay for dissertations but it puts quotes around titles in references
+\setcitestyle{authoryear, open={((},close={))}}
+\bibliography{reference}
+
+% appendix section: if you have more than one appendix section, you should use APPENDIX A, APPENDIX B, ....
+\mbox{}\newpage
+\phantomsection
+\appendix
+\input{chapters/appendix.tex}
+\end{document}
