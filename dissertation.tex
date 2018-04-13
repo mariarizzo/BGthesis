@@ -28,7 +28,13 @@
 \usepackage{amssymb}   % allows the use of AMS symbols like blackboard bold
 \usepackage{graphicx}  % for including graphics files and images
 \usepackage{caption}
+\captionsetup[table]{labelsep=space}
+\captionsetup[figure]{labelsep=space}
 \usepackage{epstopdf}
+\usepackage{tocloft}
+\setlength{\cftbeforetoctitleskip}{-25pt}
+\setlength{\cftbeforeloftitleskip}{-25pt}
+\setlength{\cftbeforelottitleskip}{-25pt}
 \usepackage{times}     % Times New Roman (nimbus version)
 \usepackage{listings}  % allows program codes embeded with original forms
 \usepackage{bookmark}  % make it possible to add PDF bookmarks at will
@@ -81,42 +87,44 @@
 \copyrightpage % copyrighting your dissertation is optional
 
 \begin{abstract}
-\input{frontmatter/abstract.tex}
+\input{frontmatter/abstract}
 \end{abstract}
 
 % optional section ``Some students choose to personalize their manuscripts
 % with an appropriate quotation or illustration''
 % formatting and placement is up to you.
 \begin{dedication}
-\input{frontmatter/dedication.tex}
+\input{frontmatter/dedication}
 \end{dedication}
 
 % optional but encouraged section ``as a means to recognize and express
 % appreciation to the people who were influential in preparing and completing
 % the manuscript''
 \begin{acknowledgments}
-\input{frontmatter/acknowledgments.tex}
+\input{frontmatter/acknowledgments}
 \end{acknowledgments}
 
 \pdfbookmark[section]{\contentsname}{toc}  % put toc in PDF bookmarks
 \tableofcontents
 \pagebreak
+\pdfbookmark[section]{LIST OF FIGURES}{figures}
 \listoffigures
 \pagebreak
+\pdfbookmark[section]{LIST OF TABLES}{tables}
 \listoftables
 
 % preface section is optional
 \begin{preface}
-\input{frontmatter/preface.tex}
+\input{frontmatter/preface}
 \end{preface}
 
 \mainmatter % starts over page counter and gives regular page numbers
 
-\input{chapters/chapter1.tex}
-\input{chapters/chapter2.tex}
-\input{chapters/chapter3.tex}
-\input{chapters/chapter4.tex}
-\input{chapters/chapter5.tex}
+\input{chapters/chapter1}
+\input{chapters/chapter2}
+\input{chapters/chapter3}
+\input{chapters/chapter4}
+\input{chapters/chapter5}
 
 \backmatter
 
@@ -135,5 +143,5 @@
 \mbox{}\newpage
 \phantomsection
 \appendix
-\input{chapters/appendix.tex}
+\input{chapters/appendix}
 \end{document}
