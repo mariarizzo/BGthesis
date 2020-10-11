@@ -42,29 +42,16 @@
 \usepackage[nottoc,notlof,notlot]{tocbibind} % keep list of figures, tables, out of the table of contents, also keep the table of contents out of the table of contents
 \usepackage[longnamesfirst]{natbib} %You need to insert comment (%) if you don't want to use natbib for bibliography
 
-% Number theorems, lemmas, etc. together with equation numbers
-% This makes things easier to find in the dissertation, a great help to readers
-
-\newtheorem{theorem}[equation]{{\bf Theorem}}
-\newtheorem{lemma}[equation]{\bf Lemma}
-\newtheorem{remark}[equation]{\bf Remark}
-\newtheorem{definition}[equation]{\bf Definition}
-\newtheorem{convention}[equation]{\bf Convention}
-\newtheorem{proposition}[equation]{\bf Proposition}
-\newtheorem{notation}[equation]{\bf Notation}
-\newtheorem{corollary}[equation]{\bf Corollary}
-\newtheorem{example}[equation]{{\bf Example}}
-
-% Alternatively, number these using the theorem counter
-%\newtheorem{theorem}{Theorem}[chapter]         % Allow numbered theorems
-%\newtheorem{lemma}[theorem]{\bf Lemma.}
-%\newtheorem{remark}[theorem]{\bf Remark.}
-%\newtheorem{definition}[theorem]{\bf Definition.}
-%\newtheorem{convention}[theorem]{\bf Convention.}
-%\newtheorem{proposition}[theorem]{\bf Proposition.}
-%\newtheorem{notation}[theorem]{\bf Notation.}
-%\newtheorem{corollary}[theorem]{\bf Corollary.}
-%\newtheorem{example}[theorem]{{\bf Example.}}
+% number theorems, etc. within chapter
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{remark}{Remark}[chapter]
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{convention}{Convention}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{notation}{Notation}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{example}{Example}[chapter]
 
 % Change the text below -----------------------------------------------
 
